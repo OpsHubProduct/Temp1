@@ -1,4 +1,5 @@
 ---
+if: visitor.claims.unsigned.product
 icon: hand-wave
 cover: .gitbook/assets/OIM.png
 coverY: 0
@@ -25,11 +26,11 @@ layout:
 
 # Welcome
 
-Hi, Welcome to the site document of this application. <code class="expression">space.vars.SITENAME</code>&#x20;
-
 {% if visitor.claims.unsigned.product ===  "OM4ADO" %}
 This for OM4ADO.
 {% endif %}
+
+Hi, Welcome to the site document of this application. <code class="expression">space.vars.SITENAME</code>&#x20;
 
 {% if visitor.claims.unsigned.product ===  "OIM" %}
 This doc is for OIM.

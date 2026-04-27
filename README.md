@@ -25,7 +25,7 @@ layout:
 
 # Welcome
 
-{% if visitor.claims.unsigned.product ===  "OM4ADO" %}
+{% if visitor.claims.unsigned.product == "OM4ADO" %}
 This for OM4ADO.
 {% endif %}
 

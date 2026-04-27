@@ -1,6 +1,6 @@
 # Release Notes
 
-{% if "OpsHub Integration Manager" === space.vars.SITENAME %}
+{% if visitor.claims.unsigned.product === "OIM" %}
 \*\*\*
 
 ## Enhancements
@@ -37,6 +37,9 @@
 * Resolved an issue where due to recent change in ServiceNow from 7.217 version of <code class="expression">space.vars.SITENAME</code>, post-synchronization re-executed in cyclic manner even if there is no update on the servicenow side.
 {% endif %}
 
-{% if "OpsHub Migrator for Microsoft Azure DevOps" === space.vars.SITENAME %}
-\# Major Bugs \* Resolved an issue where a job error occurred while retrieving Test Run data when more than 200 test cases were attached to a run. \* Resolved an issue where a job error occurred while retrieving test results generated from automated runs, where associating a test case, test plan, or test suite is not required.
+{% if visitor.claims.unsigned.product === "OM4ADO" %}
+## Major Bugs&#x20;
+
+* Resolved an issue where a job error occurred while retrieving Test Run data when more than 200 test cases were attached to a run.
+* Resolved an issue where a job error occurred while retrieving test results generated from automated runs, where associating a test case, test plan, or test suite is not required.
 {% endif %}

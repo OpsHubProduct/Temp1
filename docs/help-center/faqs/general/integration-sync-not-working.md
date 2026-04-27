@@ -1,8 +1,10 @@
-## Description
+# Integrations are configured but synchronization is not happening, What can be potentials reasons?
 
-Integration for system A and system B is configured and activated. Now user is creating/updating entity in system A and even after waiting for 10-15 minutes, the entity is not synchronizing in system B. 
+### Description
 
-## Solution
+Integration for system A and system B is configured and activated. Now user is creating/updating entity in system A and even after waiting for 10-15 minutes, the entity is not synchronizing in system B.
+
+### Solution
 
 There can be multiple reasons for synchronization not working. To troubleshoot the issue, follow the steps given below:
 
@@ -12,6 +14,6 @@ There can be multiple reasons for synchronization not working. To troubleshoot t
 * Check that pre-requisites are being properly followed for the integrated systems. For this, refer [Connectors](../../../connectors/connectors.md) documentation and validate the details given for the concerned systems in its corresponding pre-requisites section.
 * Check both systems are up. Make sure that both the systems are up and reachable from the machine on which <code class="expression">space.vars.SITENAME</code> is hosted.
 * Check whether criteria filter is being configured in integration or not. If criteria filter is configured, then validate that the entity that you created is applicable for that criteria or not. To see criteria configuration of integration refer [Criteria Configuration](../../../integrate/integration-configuration.md#criteria-configuration).
-* Check the global failure in integration. In case of continuous failure(s) while reading data from source system, global failure is generated. Global failures have ![Global Failure](../../../assets/Global_Failure.jpg) icon in integration health column on View Integrations page for this integration. Click that icon, read the error message and try to fix the error.  
+* Check the global failure in integration. In case of continuous failure(s) while reading data from source system, global failure is generated. Global failures have ![Global Failure](../../../../.gitbook/assets/Global_Failure.jpg) icon in integration health column on View Integrations page for this integration. Click that icon, read the error message and try to fix the error.
 * Check the polling time in integration. 'Start polling time' means the time from when <code class="expression">space.vars.SITENAME</code> should start polling data from the source system. For more information, refer [Polling Time usage in Integration](start-polling-time-usage-in-integration.md).
 * Check the Sync Report. This will provide the information for each entity synchronized by <code class="expression">space.vars.SITENAME</code>. For more information on how to see sync report, refer [Integration Sync Report](../../troubleshooting/integration-sync-report.md).

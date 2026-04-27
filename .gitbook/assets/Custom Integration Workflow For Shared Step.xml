@@ -1,0 +1,133 @@
+<process-definition>
+    <start-state>
+        <transition to="initialize"/>
+    </start-state>
+    <state name="initialize">
+        <transition to="preSync">
+            <script>
+                <variable name="workflowId"/>
+                <variable name="event"/>
+                <variable name="Destination"/>
+                <variable name="sourceSystem"/>
+                <variable name="destinationSystem"/>
+                <expression>
+                    sourceSystem = event.getInstanceId();
+                    destinationSystem = Destination;
+                </expression>
+            </script>
+        </transition>
+    </state>
+
+    <state name="preSync">
+        <transition to="Transform">
+            <script>
+                <variable name="event"/>
+                <variable name="sourceSystem"/>
+                <variable name="workflowInstanceId"/>
+                <variable name="destinationSystem"/>
+                <variable name="sourceSystemClient"/>
+                <variable name="destinationClient"/>
+                <variable name="sourceHandler"/>
+                <expression>
+                    import com.opshub.eai.core.utility.CommonConnectorLoader;
+                    import java.util.HashMap;
+                    import com.opshub.dao.core.SystemType;
+                    import com.opshub.eai.EaiUtility;
+
+                    String projectKey = EaiUtility.getProjectMetadataKey(sourceSystem);
+                    HashMap overrideProperties = new HashMap();
+
+                    if (projectKey != null) {
+                    overrideProperties.put(projectKey, event.getProject());
+                    }
+
+                    CommonConnectorLoader sourceHandler = new CommonConnectorLoader(workflowInstanceId, sourceSystem);
+                    sourceSystemClient = sourceHandler.getOIMAdapter(overrideProperties);
+                </expression>
+            </script>
+        </transition>
+    </state>
+
+    <state name="Transform">
+        <transition to="initiateDestination">
+            <script>
+                <variable name="event"/>
+                <variable name="workflowInstanceId"/>
+                <variable name="mappedProperties"/>
+                <expression>
+                    import java.util.HashMap;
+                    import com.opshub.eai.EAIXSLTTransformationHandler;
+
+                    mappedProperties = EAIXSLTTransformationHandler.executeTransformation(workflowInstanceId, event);
+                </expression>
+            </script>
+        </transition>
+    </state>
+
+    <state name="initiateDestination">
+        <transition to="callMethod">
+            <script>
+                <variable name="event"/>
+                <variable name="workflowInstanceId"/>
+                <variable name="destinationClient"/>
+                <variable name="Destination"/>
+                <variable name="mappedProperties"/>
+                <variable name="propertiesForPostSync"/>
+                <expression>
+                    import com.opshub.eai.core.utility.CommonConnectorLoader;
+                    import java.util.HashMap;
+                    import com.opshub.dao.core.SystemType;
+                    import com.opshub.eai.Constants;
+
+                    HashMap systemProps = mappedProperties.get(Constants.NEWSYSTEMPROP);
+                    HashMap projInfo = null;
+                    if (systemProps != null) {
+                    projInfo = systemProps.remove(Constants.PROJECT_INFO);
+                    }
+
+                    CommonConnectorLoader targetHandler = new CommonConnectorLoader(workflowInstanceId, Destination);
+                    destinationClient = targetHandler.getOIMAdapter(projInfo);
+
+                    propertiesForPostSync.put(Constants.OH_DESTINATION_ENTITY_SCOPE, destinationClient.getScopeId(null, null, null));
+                    propertiesForPostSync.put(Constants.OH_DESTINATION_ENTITY_TYPE, destinationClient.getActualEntityType(null, null, null));
+                </expression>
+            </script>
+        </transition>
+    </state>
+
+    <state name="callMethod">
+        <transition to="end">
+            <script>
+                <variable name="mappedProperties"/>
+                <variable name="destinationClient"/>
+                <variable name="sourceSystemClient"/>
+                <variable name="event"/>
+                <variable name="sourceSystem"/>
+                <variable name="destinationSystem"/>
+                <variable name="internalId"/>
+                <variable name="Destination"/>
+                <variable name="workflowInstanceId"/>
+                <variable name="eventDetail"/>
+                <variable name="propertiesForPostSync"/>
+                <expression>
+                    import java.util.HashMap;
+                    import com.opshub.eai.Constants;
+                    import com.opshub.eai.EventDetail;
+                    import com.opshub.eai.EaiUtility;
+
+                    HashMap sysProp = mappedProperties.get(Constants.NEWSYSTEMPROP);
+                    HashMap custProp = mappedProperties.get(Constants.NEWCUSTOMPROP);
+                    HashMap oldSystemValues = mappedProperties.get(Constants.OLDSYSTEMPROP);
+                    HashMap oldCustomValues = mappedProperties.get(Constants.OLDCUSTOMPROP);
+
+                    EaiUtility.handleStepFromSharedStepToSharedStep(mappedProperties, sourceSystemClient, destinationClient, "steps", "description", "OH_KY_DO_NOT_EDIT:", null, "testcase-zephyr", workflowInstanceId, "keyword");
+
+                    String internalId = destinationClient.upsert(eventDetail, sysProp, custProp, null, oldSystemValues, oldCustomValues);
+                    propertiesForPostSync.put(Constants.OH_DESTINATION_ENTITY_ID, internalId);
+                </expression>
+            </script>
+        </transition>
+    </state>
+
+    <end-state name="end"/>
+</process-definition>

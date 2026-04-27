@@ -1,3 +1,7 @@
+---
+title: manual-mysqldatabase-creation
+---
+
 Let's name the database as `db1`:
 
 ```sql

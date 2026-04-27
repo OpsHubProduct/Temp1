@@ -1,16 +1,18 @@
-## Description
+# OH-Jama-0038
 
-When the user encounters OH-Jama-0038, then the following error message will appear:  
-**"OH-Jama-0038: File type is not supported. Please contact your system administrator."**
+### Description
 
-## Cause
+When the user encounters OH-Jama-0038, then the following error message will appear:\
+&#xNAN;**"OH-Jama-0038: File type is not supported. Please contact your system administrator."**
+
+### Cause
 
 For Jama as the target system, if the attachment file name contains **Windows invalid file name characters** (`<`, `>`, `:`, `"`, `/`, `\`, `|`, `?`, `*`), then the file will not be added in Jama. Consequently, the user will encounter a processing failure.
 
-## Solution
+### Solution
 
-- If the attachment file name contains Windows invalid characters (`<`, `>`, `:`, `"`, `/`, `\`, `|`, `?`, `*`), then add advance mapping for attachments to replace special characters with any of the supported characters.
-- Refer to the snippet below for a sample advance mapping for attachments in which all of the earlier specified Windows invalid characters are being replaced by an underscore (`_`) in the attachment file name:
+* If the attachment file name contains Windows invalid characters (`<`, `>`, `:`, `"`, `/`, `\`, `|`, `?`, `*`), then add advance mapping for attachments to replace special characters with any of the supported characters.
+*   Refer to the snippet below for a sample advance mapping for attachments in which all of the earlier specified Windows invalid characters are being replaced by an underscore (`_`) in the attachment file name:
 
     ```xml
     <OHAttachments>

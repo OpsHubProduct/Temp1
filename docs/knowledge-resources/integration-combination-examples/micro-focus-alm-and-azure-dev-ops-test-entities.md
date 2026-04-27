@@ -1,4 +1,4 @@
-# Micro Focus ALM – Azure DevOps Server/Service Integration (Test Entities)
+# Micro Focus ALM - Azure DevOps Integration (Test Entities)
 
 ## Overview
 
@@ -6,14 +6,12 @@ This document outlines the process for configuring integration between Micro Foc
 
 The image below illustrates the corresponding entities configured between Micro Focus ALM and Azure DevOps Server/Service as part of the integration.
 
-<p align="center">
-  <img src="../../assets/HPTFS.png"/>
-</p>
+<div align="center"><img src="../../../.gitbook/assets/HPTFS.png" alt=""></div>
 
-- The *Test Run* to *Test Run* integration is required when synchronizing from Micro Focus ALM to Azure DevOps Server/Service.
-  - The *Test Run* to *Test Run* integration creates a corresponding *Test Run* in Azure DevOps Server/Service.
-  - The *Test Run* to *Test Result* integration creates *Test Result* under the *Test Run* created in Azure DevOps Server/Service.
-- When synchronizing Azure DevOps Server/Service to Micro Focus ALM, *Test Result* to *Test Run* integration is required.
+* The _Test Run_ to _Test Run_ integration is required when synchronizing from Micro Focus ALM to Azure DevOps Server/Service.
+  * The _Test Run_ to _Test Run_ integration creates a corresponding _Test Run_ in Azure DevOps Server/Service.
+  * The _Test Run_ to _Test Result_ integration creates _Test Result_ under the _Test Run_ created in Azure DevOps Server/Service.
+* When synchronizing Azure DevOps Server/Service to Micro Focus ALM, _Test Result_ to _Test Run_ integration is required.
 
 ## System Prerequisites
 
@@ -82,18 +80,20 @@ Follow the steps given in the [Integration Configuration](../../integrate/integr
     </xsl:for-each>
 </Steps>
 ```
+
 #### Workflow For Synchronization Of Test in Micro Focus ALM to Test Case in Azure DevOps Server/Service
 
-- Workflow with name ***Default Integration Workflow - HP Test to TFS Test - Shared Steps.xml*** is provided which should be used when synchronizing *Test* in Micro Focus ALM to *Test Case* in Azure DevOps Server/Service.
+* Workflow with name _**Default Integration Workflow - HP Test to TFS Test - Shared Steps.xml**_ is provided which should be used when synchronizing _Test_ in Micro Focus ALM to _Test Case_ in Azure DevOps Server/Service.
 
 ### Mapping And Workflow For Integration Of Test Run in Micro Focus ALM to Test Result in Azure DevOps Server/Service
 
 Following combination of fields should be mapped with each other:
+
 * Cycle ID -> TestSuiteId
 * Test -> TestCaseId
 * Run ID -> TestRunId
 
-Given below are custom mappings required for different fields and workflows for integration when synchronizing *Test Run* in Micro Focus ALM to *Test Result* in Azure DevOps Server/Service.
+Given below are custom mappings required for different fields and workflows for integration when synchronizing _Test Run_ in Micro Focus ALM to _Test Result_ in Azure DevOps Server/Service.
 
 #### Mapping for Test Run in Micro Focus ALM to Test Result in Azure DevOps Server/Service
 
@@ -229,9 +229,9 @@ Given below are custom mappings required for different fields and workflows for 
 
 #### Workflow For Synchronization Of Test Run in Micro Focus ALM to Test Result in Azure DevOps Server/Service
 
-* Workflow with name ***Default Integration Workflow - HPQC To TFS - Test Result.xml*** is provided which should be used when synchronizing *Test Run* in Micro Focus ALM to *Test Result* in Azure DevOps Server/Service.
+* Workflow with name _**Default Integration Workflow - HPQC To TFS - Test Result.xml**_ is provided which should be used when synchronizing _Test Run_ in Micro Focus ALM to _Test Result_ in Azure DevOps Server/Service.
 
-## Azure DevOps Server/Service to Micro Focus ALM 
+## Azure DevOps Server/Service to Micro Focus ALM
 
 ### Mapping And Workflow For Integration Of Test Case in Azure DevOps Server/Service to Test in Micro Focus ALM
 
@@ -295,20 +295,21 @@ Given below are custom mappings required for different fields and workflows for 
 
 #### Workflow For Synchronization Of Test Case in Azure DevOps Server/Service to Test in Micro Focus ALM
 
-- Workflow with name ***Default Integration Workflow - TFS to HP Shared Steps.xml*** is provided which should be used when synchronizing *Test Case* in Azure DevOps Server/Service to *Test* in Micro Focus ALM.
+* Workflow with name _**Default Integration Workflow - TFS to HP Shared Steps.xml**_ is provided which should be used when synchronizing _Test Case_ in Azure DevOps Server/Service to _Test_ in Micro Focus ALM.
 
 ### Mapping And Workflow For Integration Of Test Result in Azure DevOps Server/Service to Test Run in Micro Focus ALM
 
 Following combination of fields should be mapped with each other:
+
 * TestSuiteId -> Cycle ID
 * TestCaseId -> Test
 * TestRunId -> Run ID
 
-Given below are custom mappings required for different fields and workflows for integration when synchronizing *Test Result* in Azure DevOps Server/Service to *Test Run* in Micro Focus ALM.
+Given below are custom mappings required for different fields and workflows for integration when synchronizing _Test Result_ in Azure DevOps Server/Service to _Test Run_ in Micro Focus ALM.
 
 #### Mapping for Test Result in Azure DevOps Server/Service to Test Run in Micro Focus ALM
 
-Following XSLTs should be used as advance mapping for given fields when synchronizing *Test Result* from Azure DevOps Server/Services to *Test Run* in Micro Focus ALM.
+Following XSLTs should be used as advance mapping for given fields when synchronizing _Test Result_ from Azure DevOps Server/Services to _Test Run_ in Micro Focus ALM.
 
 * **MultiIterations field of Azure DevOps Server/Services to Run Steps field of Micro Focus ALM**
 
@@ -388,6 +389,7 @@ Following XSLTs should be used as advance mapping for given fields when synchron
             select="SourceXML/updatedFields/Property/OHEntityReferences/OHEntityReference[linkType='Test Suite']/links/EAILinkEntityItem/entityInternalId"/>
 </Cycle-space-ID>
 ```
+
 * **Mapping for Test field of Micro Focus ALM**
 
 ```xml
@@ -396,6 +398,7 @@ Following XSLTs should be used as advance mapping for given fields when synchron
             select="SourceXML/updatedFields/Property/OHEntityReferences/OHEntityReference[linkType='Test Case']/links/EAILinkEntityItem/entityInternalId"/>
 </Test>
 ```
+
 #### Workflow For Synchronization Of Test Case in Azure DevOps Server/Service to Test Run in Micro Focus ALM
 
-* Workflow with name ***Default Integration Workflow - TFS To HPQC - Test Result.xml*** is provided which should be used when synchronizing *Test Result* in Azure DevOps Server/Service to *Test Run* in Micro Focus ALM.
+* Workflow with name _**Default Integration Workflow - TFS To HPQC - Test Result.xml**_ is provided which should be used when synchronizing _Test Result_ in Azure DevOps Server/Service to _Test Run_ in Micro Focus ALM.

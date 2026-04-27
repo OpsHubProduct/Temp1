@@ -1,4 +1,4 @@
-# oh-tfs-azure-devops-0182
+# OH-TFS/AzureDevOps-0182
 
 ### Description
 
@@ -18,13 +18,13 @@ Following are the probable reasons for this:
 
 ### Solution
 
-* If you have not registered OpsHubTFSService, then refer [How to register OpsHubTFSService?](how-to-register-opshubtfsservice/) and register OpsHubTFSService.
-* If OpsHubTFSService is already registered and not running, then start the OpsHubTFSService.&#x20;
-* The format of Service URL should be http://:\<port\_number>/TFSService during system configuration.&#x20;
+* If you have not registered OpsHubTFSService, then refer [How to register OpsHubTFSService?](https://github.com/OpsHubProduct/OIM-Documentation/blob/main/docs/help-center/troubleshooting/errors/tfs/how-to-register-opshubtfsservice/README.md) and register OpsHubTFSService.
+* If OpsHubTFSService is already registered and not running, then start the OpsHubTFSService.
+* The format of Service URL should be http://:\<port\_number>/TFSService during system configuration.
 * Validate OpsHubTFSService is registered on same hostname and port number that is provided in Service URL by opening this URL in the browser:\
   http://:/TFSService.\
   E.g. If you have registered OpsHubTFSService with hostname "localhost" and port number "9191" then hit URL: http://localhost:9191/TFSService.
-* If you have upgraded <code class="expression">space.vars.SITENAME</code>, then refer [How to upgrade OpsHubTFSService after upgrading <code class="expression">space.vars.SITENAME</code>?](../../../faqs/tfs/how-to-upgrade-opshubtfsservice-after-upgrading-opshub-integration-manager.md) to upgrade OpsHubTFSService.
+* If you have upgraded <code class="expression">space.vars.SITENAME</code>, then refer [How to upgrade OpsHubTFSService after upgrading <code class="expression">space.vars.SITENAME</code>?](https://github.com/OpsHubProduct/OIM-Documentation/blob/main/docs/help-center/faqs/tfs/how-to-upgrade-opshubtfsservice-after-upgrading-opshub-integration-manager.md) to upgrade OpsHubTFSService.
 * If OpsHubTFSService is registered/started/upgraded successfully, the following output will be opened in the browser after hitting the URL:
 
-<div align="center"><img src="../../../../assets/Port_change.PNG" alt=""></div>
+<div align="center"><img src="../../../../../.gitbook/assets/Port_change.PNG" alt=""></div>

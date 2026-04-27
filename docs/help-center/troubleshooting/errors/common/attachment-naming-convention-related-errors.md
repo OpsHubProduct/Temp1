@@ -1,16 +1,18 @@
-## Description
+# Attachment-naming-convention-related-errors
 
-When the user encounters attachment naming convention related error, then the following error message will appear:  
-**"URLDecoder: Illegal hex characters in escape (%) pattern - For input string: \"^&\""**
+### Description
 
-## Cause
+When the user encounters attachment naming convention related error, then the following error message will appear:\
+&#xNAN;**"URLDecoder: Illegal hex characters in escape (%) pattern - For input string: "^&""**
+
+### Cause
 
 When any system is selected as the target system, if the attachment file name contains **Invalid file name characters** (`%`, `:`) or **Non-ascii characters** like (`样`, `品`, `テ`, `ス`, `ト`, `フ`, `ァ`, `イ`, `ル`, `★`, `✓`, `♛`, `Ω`), then the file will not be added in end system. Consequently, the user will encounter a processing failure.
 
-## Solution
+### Solution
 
-- If the attachment file name contains Windows invalid characters (`%`, `:`) or Non-ascii characters like (`样`, `品`, `テ`, `ス`, `ト`, `フ`, `ァ`, `イ`, `ル`, `★`, `✓`, `♛`, `Ω`), then add advance mapping for attachments to replace special characters with any of the supported characters.
-- Refer to the snippet below for a sample advance mapping for attachments in which all the earlier specified invalid characters are being replaced by an underscore (`_`) in the attachment file name:
+* If the attachment file name contains Windows invalid characters (`%`, `:`) or Non-ascii characters like (`样`, `品`, `テ`, `ス`, `ト`, `フ`, `ァ`, `イ`, `ル`, `★`, `✓`, `♛`, `Ω`), then add advance mapping for attachments to replace special characters with any of the supported characters.
+*   Refer to the snippet below for a sample advance mapping for attachments in which all the earlier specified invalid characters are being replaced by an underscore (`_`) in the attachment file name:
 
     ```xml
     <OHAttachments>

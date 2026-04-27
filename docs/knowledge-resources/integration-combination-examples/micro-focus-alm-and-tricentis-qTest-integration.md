@@ -1,98 +1,84 @@
-# Overview
-Best-of-breed systems such as Micro Focus ALM/QC and Tricentis qTest bring rich functionalities to the ecosystem. The integration of Micro Focus ALM and Tricentis qTest makes it easier for the development, and quality assurance (QA) teams to collaborate with each other. This, in turn, helps in delivering a high quality product to customers at a faster pace. With this integration, there is no manual effort required to keep the teams updated on the latest work status.  
+# Micro Focus ALM – Tricentis qTest Integration
 
-<code class="expression">space.vars.SITENAME</code> integrates Micro Focus ALM and Tricentis qTest bi-directionally. On this page, we will discuss the bi-directional integration of:  
+## Overview
 
-<p align="center">
-  <img src="../../assets/Micro_Focus_ALM_Tricentis_qTest_entities.png" width="950" />
-</p>
+Best-of-breed systems such as Micro Focus ALM/QC and Tricentis qTest bring rich functionalities to the ecosystem. The integration of Micro Focus ALM and Tricentis qTest makes it easier for the development, and quality assurance (QA) teams to collaborate with each other. This, in turn, helps in delivering a high quality product to customers at a faster pace. With this integration, there is no manual effort required to keep the teams updated on the latest work status.
 
-# System Prerequisites
-Configuring [system pre-requisites](../../integrate/integration-prerequisites.md) is mandatory for successful system configuration.  Check out the prerequisites for [Micro Focus ALM](../../connectors/micro-focus-alm-qc.md#prerequisites) and [Tricentis qTest](../../connectors/tricentis-qTest.md#prerequisites) systems before you proceed with the integration.  
+<code class="expression">space.vars.SITENAME</code> integrates Micro Focus ALM and Tricentis qTest bi-directionally. On this page, we will discuss the bi-directional integration of:
 
-# Integration Configuration
-* Log in into <code class="expression">space.vars.SITENAME</code>. The default credentials are: User Name: `admin`, Password: `password`.  
+<div align="center"><img src="../../../.gitbook/assets/Micro_Focus_ALM_Tricentis_qTest_entities.png" alt="" width="950"></div>
 
-<p align="center">
-  <img src="../../assets/Getting_Started_With_Application_Image_1G_a.png" width="700"/>
-</p>
+## System Prerequisites
 
->**Note** **Proxy parameters**: Before you proceed with the configuration, check whether the system is behind a proxy server. If yes, then set up [proxy parameters](../../manage/administrator/proxy-setting.md) in <code class="expression">space.vars.SITENAME</code>.  
+Configuring [system pre-requisites](../../integrate/integration-prerequisites.md) is mandatory for successful system configuration. Check out the prerequisites for [Micro Focus ALM](../../connectors/micro-focus-alm-qc.md#prerequisites) and [Tricentis qTest](../../connectors/tricentis-qTest.md#prerequisites) systems before you proceed with the integration.
 
-* Click **Integrate** on the top right corner of the screen and then click the plus [+] icon.  
+## Integration Configuration
 
-<p align="center">
-  <img src="../../assets/Overview_of_Integration_Image_1D.png" width="1100"/>
-</p>
+* Log in into <code class="expression">space.vars.SITENAME</code>. The default credentials are: User Name: `admin`, Password: `password`.
 
-* The integration configuration page opens:  
-* Enter a unique name for the integration. For example, this integration is named **Micro Focus ALM - Tricentis qTest Integration**.  
-* Click the plus [+] icon adjacent to the System 1 and System 2 fields one by one to configure Tricentis qTest and Micro Focus ALM.  
+<div align="center"><img src="../../../.gitbook/assets/Getting_Started_With_Application_Image_1G_a.png" alt="" width="700"></div>
 
-<p align="center">
-  <img src="../../assets/ALM-QTEST_1.png"  width="1100"/>
-</p>
+> **Note** **Proxy parameters**: Before you proceed with the configuration, check whether the system is behind a proxy server. If yes, then set up [proxy parameters](../../manage/administrator/proxy-setting.md) in <code class="expression">space.vars.SITENAME</code>.
 
-## Configure System(s)
+* Click **Integrate** on the top right corner of the screen and then click the plus \[+] icon.
 
-* Once you have fulfilled all the prerequisites and are done with the above-mentioned check, configure Tricentis qTest and Micro Focus ALM by following the steps given on Tricentis qTest and Micro Focus ALM pages respectively.  
+<div align="center"><img src="../../../.gitbook/assets/Overview_of_Integration_Image_1D.png" alt="" width="1100"></div>
 
-<p align="center">
-  <img src="../../assets/ALM-QTEST_2.png" width="1100" />
-</p>
+* The integration configuration page opens:
+* Enter a unique name for the integration. For example, this integration is named **Micro Focus ALM - Tricentis qTest Integration**.
+* Click the plus \[+] icon adjacent to the System 1 and System 2 fields one by one to configure Tricentis qTest and Micro Focus ALM.
 
-* When you save the respective system configuration pages after configuring the systems, the systems will automatically be added to the integration. Proceed to adding projects and entities in the integration.  
+<div align="center"><img src="../../../.gitbook/assets/ALM-QTEST_1.png" alt="" width="1100"></div>
 
-<p align="center">
-  <img src="../../assets/ALM-QTEST_3.png" width="1100" />
-</p>
+### Configure System(s)
 
-## Select Projects and Entities
->**Note** If you receive the following error: **PKIX certification path not found** and the projects and entities don’t load properly, then [import SSL certificate](../../getting-started/ssl-certificate-configuration.md) onto <code class="expression">space.vars.SITENAME</code>’s Java KeyStore before you proceed.  
+* Once you have fulfilled all the prerequisites and are done with the above-mentioned check, configure Tricentis qTest and Micro Focus ALM by following the steps given on Tricentis qTest and Micro Focus ALM pages respectively.
 
-* In the **Add Project(s) to Sync** section, select the projects you want to synchronize between Tricentis qTest and Micro Focus ALM by clicking them.  
-For example, here we select <code class="expression">space.vars.SITENAME</code> Demo Project from Tricentis qTest and TestProject from Micro Focus ALM.  
+<div align="center"><img src="../../../.gitbook/assets/ALM-QTEST_2.png" alt="" width="1100"></div>
 
-* Once the projects are selected, define the source project and target project:  
-  * If you select forward arrow (>) icon, the data would flow from Tricentis qTest to Micro Focus ALM.  
-  * If you select backward arrow (<), the data would flow from Micro Focus ALM to Tricentis qTest.  
-  * If you want a bi-directional flow of data, select bi-directional arrow (<-->) icon.  
+* When you save the respective system configuration pages after configuring the systems, the systems will automatically be added to the integration. Proceed to adding projects and entities in the integration.
 
-* Once the direction is selected, the arrows will turn grey. We have selected the bi-directional flow.  
+<div align="center"><img src="../../../.gitbook/assets/ALM-QTEST_3.png" alt="" width="1100"></div>
 
-<p align="center">
-  <img src="../../assets/ALM-QTEST_4.png" width="1100" />
-</p>
+### Select Projects and Entities
 
-* <code class="expression">space.vars.SITENAME</code> fetches entities available in both systems and shows them in the entities list for both systems.  
-From the **Select Entities to Sync** section, select the relevant entities for both systems.  
-In this case, we will select **Test** from Micro Focus ALM and **Test Case** from Tricentis qTest.  
+> **Note** If you receive the following error: **PKIX certification path not found** and the projects and entities don’t load properly, then [import SSL certificate](../../getting-started/ssl-certificate-configuration.md) onto <code class="expression">space.vars.SITENAME</code>’s Java KeyStore before you proceed.
 
-* The next step is to define the fields that need to be integrated for every entity mapped.  
-So, once the entities are selected, click the plus icon [+] adjacent to **Select fields to be Synced** to create the mapping between these two entities.  
-You will be navigated to Mapping Configuration screen.  
+* In the **Add Project(s) to Sync** section, select the projects you want to synchronize between Tricentis qTest and Micro Focus ALM by clicking them.\
+  For example, here we select <code class="expression">space.vars.SITENAME</code> Demo Project from Tricentis qTest and TestProject from Micro Focus ALM.
+* Once the projects are selected, define the source project and target project:
+  * If you select forward arrow (>) icon, the data would flow from Tricentis qTest to Micro Focus ALM.
+  * If you select backward arrow (<), the data would flow from Micro Focus ALM to Tricentis qTest.
+  * If you want a bi-directional flow of data, select bi-directional arrow (<-->) icon.
+* Once the direction is selected, the arrows will turn grey. We have selected the bi-directional flow.
 
-<p align="center">
-  <img src="../../assets/ALM-QTEST_5.png" width="1100" />
-</p>
+<div align="center"><img src="../../../.gitbook/assets/ALM-QTEST_4.png" alt="" width="1100"></div>
 
-## Mapping Fields
-### Entity: Test and Test Case
-* Following details are automatically populated in the Mapping section: **Systems, Projects, Entities, and Mapping Name**.  
-If you wish, change the name for the mapping in the **Name** field.  
+* <code class="expression">space.vars.SITENAME</code> fetches entities available in both systems and shows them in the entities list for both systems.\
+  From the **Select Entities to Sync** section, select the relevant entities for both systems.\
+  In this case, we will select **Test** from Micro Focus ALM and **Test Case** from Tricentis qTest.
+* The next step is to define the fields that need to be integrated for every entity mapped.\
+  So, once the entities are selected, click the plus icon \[+] adjacent to **Select fields to be Synced** to create the mapping between these two entities.\
+  You will be navigated to Mapping Configuration screen.
 
-* Now, either click **Create from Scratch** to define the mapping from scratch or click **Auto Map** to automatically map all fields with same name.  
-Even if you select **Auto Map**, <code class="expression">space.vars.SITENAME</code> will allow you to remove or add more fields before saving mapping.  
-We select **Create from Scratch**.  
+<div align="center"><img src="../../../.gitbook/assets/ALM-QTEST_5.png" alt="" width="1100"></div>
 
-<p align="center">
-  <img src="../../assets/ALM-QTEST_6.png" width="1100" />
-</p>
+### Mapping Fields
 
+#### Entity: Test and Test Case
 
-#### Mapping for Design Steps to Test Steps
-* To synchronize Design Steps from Micro Focus ALM [where the project is versioned] with Test Steps in Tricentis qTest, the following advanced mapping can be applied:
- 
+* Following details are automatically populated in the Mapping section: **Systems, Projects, Entities, and Mapping Name**.\
+  If you wish, change the name for the mapping in the **Name** field.
+* Now, either click **Create from Scratch** to define the mapping from scratch or click **Auto Map** to automatically map all fields with same name.\
+  Even if you select **Auto Map**, <code class="expression">space.vars.SITENAME</code> will allow you to remove or add more fields before saving mapping.\
+  We select **Create from Scratch**.
+
+<div align="center"><img src="../../../.gitbook/assets/ALM-QTEST_6.png" alt="" width="1100"></div>
+
+**Mapping for Design Steps to Test Steps**
+
+* To synchronize Design Steps from Micro Focus ALM \[where the project is versioned] with Test Steps in Tricentis qTest, the following advanced mapping can be applied:
+
 ```json
 
  <Test-space-Step source-entity-version="{SourceXML/updatedFields/Property/Version-space-Number}">
@@ -141,14 +127,16 @@ We select **Create from Scratch**.
  </Test-space-Step>
 ```
 
->**Note**:
+> **Note**:
+
 * In the above advanced mapping, we have passed the '''source-entity-version''' in Design Steps as attribute to sync the Design Steps and parameters with the history.
 * In case, the Micro Focus ALM's projects is not versioned, then there is no need to pass the above attribute '''source-entity-version''' in the advanced mapping.
 
-### Entity:Test Run and Test Log 
+#### Entity:Test Run and Test Log
 
-#### Mapping for Run Steps to Step Results 
-* To synchronize Run Steps from Micro Focus ALM [where the project is versioned] to Step Results in Tricentis qTest, the following advanced mapping can be applied:
+**Mapping for Run Steps to Step Results**
+
+* To synchronize Run Steps from Micro Focus ALM \[where the project is versioned] to Step Results in Tricentis qTest, the following advanced mapping can be applied:
 
 ```json
 
@@ -196,17 +184,10 @@ We select **Create from Scratch**.
    </xsl:element>
   </xsl:for-each>
  </Step-space-Results>
-``` 
+```
 
->**Note**:
+> **Note**:
+
 * In the above advanced mapping, we have passed the **source-entity-version** in Run Steps as attribute to sync the Run Steps and parameters with history.
 * In case, the Micro Focus ALM's projects is not versioned, then there is no need to pass the above attribute **source-entity-version** in the advanced mapping.
-
 * Once the additional configurations are completed successfully, update the mapping, activate the integration, and save it again.
-
- 
-
-
-
-
-

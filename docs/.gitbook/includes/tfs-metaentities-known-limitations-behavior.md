@@ -1,9 +1,12 @@
+---
+title: tfs-metaentities-known-limitations-behavior
+---
+
 * Impersonation is not supported.
 * Synchronization of Meta Entities for Team Foundation Server 2010 or lower is not supported.
 * <code class="expression">space.vars.SITENAME</code> will not sync the following two permissions at collection level for Group and Users due to lack of API:
   * Delete team project
-  * Delete team project collection
-    However, the first permissions for a group or a user will be set at the project level.
+  * Delete team project collection However, the first permissions for a group or a user will be set at the project level.
 * Synchronization of the groups with reserved name is only possible if they are present in the target system. If such groups are not present in the target system, processing failures will be observed in <code class="expression">space.vars.SITENAME</code>.
   * Reason: Groups cannot be created with reserved names, i.e., Group name 'Endpoint Creators' is reserved by the end system. While trying to create this group, a failure error message will be generated, 'Cannot complete the operation because the group name 'Endpoint Creators' is reserved by the system.'
   * User needs to manually delete this failure and start the synchronization again.

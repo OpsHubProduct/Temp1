@@ -1,6 +1,8 @@
+# Start/Stop OpsHub Integration Manager
+
 Let's see how to start and stop the service.
 
-# Windows
+## Windows
 
 If you are using a Windows machine, there are two ways to start and stop the service:
 
@@ -23,39 +25,29 @@ This section is useful in case user is not able to access the service as user do
 
 To provide the rights to a particular user, admin just needs to follow the steps given below.
 
-> **Note**:  **To open Group Policy Management, Press Windows Logo Key + R to open RUN dialog box. Type gpmc.msc and click Ok.**
+> **Note**: **To open Group Policy Management, Press Windows Logo Key + R to open RUN dialog box. Type gpmc.msc and click Ok.**
 
 * Step 1: Edit default policy used by organization
 
-<p align="center">
-  <img src="../assets/Start_Stop_Service_Image_1.png" width="800"/>
-</p>
+<div align="center"><img src="../../.gitbook/assets/Start_Stop_Service_Image_1.png" alt="" width="800"></div>
 
 * Step 2: Open OpsHub Server Service properties window
 
-<p align="center">
-  <img src="../assets/Start_Stop_Service_Image_2.png" width="800"/>
-</p>
+<div align="center"><img src="../../.gitbook/assets/Start_Stop_Service_Image_2.png" alt="" width="800"></div>
 
 * Step 3: Define the policy setting for OpsHub Server Service
 
-<p align="center">
-  <img src="../assets/Start_Stop_Service_Image_3.png" width="800"/>
-</p>
+<div align="center"><img src="../../.gitbook/assets/Start_Stop_Service_Image_3.png" alt="" width="800"></div>
 
 * Step 4: Add User or Group so that they can access OpsHub Server Service
 
-<p align="center">
-  <img src="../assets/Start_Stop_Service_Image_4.png" width="800"/>
-</p>
+<div align="center"><img src="../../.gitbook/assets/Start_Stop_Service_Image_4.png" alt="" width="800"></div>
 
 * Step 5: Allow required permission to User or Group
 
-<p align="center">
-  <img src="../assets/Start_Stop_Service_Image_5.png" width="670"/>
-</p>
+<div align="center"><img src="../../.gitbook/assets/Start_Stop_Service_Image_5.png" alt="" width="670"></div>
 
-# Linux
+## Linux
 
 If the application is installed on a Linux machine, here is the way to start and stop OpsHub service.
 
@@ -71,20 +63,16 @@ If you don't have requisite permission for accessing OpsHub Server Services in L
 
 Note: **To access OpsHub Server Services navigate to \etc\systemd\system**
 
-This section is useful in case user is not able to access the service as users does not have enough permissions.  
+This section is useful in case user is not able to access the service as users does not have enough permissions.\
 To give permission to users follow the steps given below:
 
 Step 1: Access properties of OpsHub service
 
-<p align="center">
-  <img src="../assets/Start_Stop_Service_Image_6.png" width="900"/>
-</p>
+<div align="center"><img src="../../.gitbook/assets/Start_Stop_Service_Image_6.png" alt="" width="900"></div>
 
 Step 2: Assign appropriate access to group
 
-<p align="center">
-  <img src="../assets/Start_Stop_Service_Image_7.png" width="670"/>
-</p>
+<div align="center"><img src="../../.gitbook/assets/Start_Stop_Service_Image_7.png" alt="" width="670"></div>
 
 Required commands:
 

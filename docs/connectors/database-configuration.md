@@ -1,23 +1,22 @@
-# Prerequisites
+# Database Configuration
+
+## Prerequisites
 
 1. Few Systems supported by <code class="expression">space.vars.SITENAME</code> require Database Connection. By default, <code class="expression">space.vars.SITENAME</code> is deployed on HSQL Database Server, MSSQL Database Server, MySQL Database Server, PostgreSQL Database Server or Oracle Database Server.
 2. If Database Connection requires connection to database other than the Database server on which <code class="expression">space.vars.SITENAME</code> is deployed, then follow the given steps below:
-   - Download the required database driver on which you want new database connection to be created. For downloading, refer the links below:
-     - MySQL Server: [MySQL Server Driver](https://dev.mysql.com/downloads/connector/j/5.0.html)
-     - MS SQL Server: [MS SQL Server Driver](http://www.microsoft.com/enus/download/details.aspx?displaylang=en&id=11774)
-     - Oracle Server: [Oracle Server Driver](http://www.oracle.com/technetwork/database/enterprise-edition/jdbc-10201088211.html)
-     - PostgreSQL Server: [PostgreSQL Server Driver](https://jdbc.postgresql.org/download/)
-     - HSQLDB Server: No need for any jar download. It is already bundled with <code class="expression">space.vars.SITENAME</code>.
+   * Download the required database driver on which you want new database connection to be created. For downloading, refer the links below:
+     * MySQL Server: [MySQL Server Driver](https://dev.mysql.com/downloads/connector/j/5.0.html)
+     * MS SQL Server: [MS SQL Server Driver](http://www.microsoft.com/enus/download/details.aspx?displaylang=en\&id=11774)
+     * Oracle Server: [Oracle Server Driver](http://www.oracle.com/technetwork/database/enterprise-edition/jdbc-10201088211.html)
+     * PostgreSQL Server: [PostgreSQL Server Driver](https://jdbc.postgresql.org/download/)
+     * HSQLDB Server: No need for any jar download. It is already bundled with <code class="expression">space.vars.SITENAME</code>.
 3. Stop the <code class="expression">space.vars.SITENAME</code> Server.
 4. Copy the downloaded driver into `[Installation Directory]\OpsHubServer\lib` folder.
 5. Start <code class="expression">space.vars.SITENAME</code> Server.
 
-# Create Connection
+## Create Connection
 
-<p align="center">
-  <img src="../assets/Connection1.png" width="500" />
-</p>
-
+<div align="center"><img src="../../.gitbook/assets/Connection1.png" alt="" width="500"></div>
 
 Steps for Creating Database Connection:
 
@@ -35,11 +34,9 @@ Steps for Creating Database Connection:
 12. Enter **Database Password** of the database server. In case of HSQLDB keep it blank.
 13. Click on **Save** button to save the Database Configuration.
 
-# View Connections
+## View Connections
 
-<p align="center">
-  <img src="../assets/Connection2.png" width="500" />
-</p>
+<div align="center"><img src="../../.gitbook/assets/Connection2.png" alt="" width="500"></div>
 
 Steps for viewing Database Connections:
 
@@ -47,15 +44,12 @@ Steps for viewing Database Connections:
 2. Click on **View Connections**.
 3. This will display all the configured connections.
 
-# Edit Connection
+## Edit Connection
 
-<p align="center">
-  <img src="../assets/Connection3.png" width="500" />
-</p>
+<div align="center"><img src="../../.gitbook/assets/Connection3.png" alt="" width="500"></div>
 
 1. Navigate to **Administration -> Connection Management**.
 2. Click on **View Connections**.
 3. Click on **Edit Connection** next to the Database Connection you want to edit in the configured connections.
 4. Edit the properties you want to change.
 5. Click on **Save** button, for saving the edited connection.
-

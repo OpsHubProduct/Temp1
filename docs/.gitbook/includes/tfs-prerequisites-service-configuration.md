@@ -1,3 +1,7 @@
+---
+title: tfs-prerequisites-service-configuration
+---
+
 <code class="expression">space.vars.SITENAME</code> requires this service to communicate with the Azure DevOps. It acts as a translation layer between Azure DevOps and <code class="expression">space.vars.SITENAME</code> and must be configured for synchronization with Azure DevOps.
 
 ## Service pre-requisites
@@ -10,16 +14,16 @@
 
 > **Note**: Refer to the table below to check which entity types require this pre-requisite. A check mark indicates a mandatory pre-requisite, while a cross mark indicates an optional one.
 
-| **Entity Type**            | **Azure DevOps Services** | **Azure DevOps Server (version >= 2020)** | **Azure DevOps Server (version < 2020)** |
-| -------------------------- | ------------------------- | ----------------------------------------- | ---------------------------------------- |
-| **Work Items**             | ❌                         | ❌                                         | ✅                                        |
+| **Entity Type**                                                     | **Azure DevOps Services** | **Azure DevOps Server (version >= 2020)** | **Azure DevOps Server (version < 2020)** |
+| ------------------------------------------------------------------- | ------------------------- | ----------------------------------------- | ---------------------------------------- |
+| **Work Items**                                                      | ❌                         | ❌                                         | ✅                                        |
 | **Test entities (Test Suite, Test Plan, Test Run and Test Result)** | ❌                         | ❌                                         | ✅                                        |
-| **Area and Iteration**    | ❌                         | ❌                                         | ✅                                        |
-| **Group, Team and User**    | ❌                         | ✅                                        | ✅                                        |
-| **Git Commit Information** | ❌                         | ❌                                         | ✅                                        |
-| **Pipeline**               | ❌                         | ❌                                         | ✅                                        |
-| **Build**                  | ❌                         | ❌                                         | ❌                                        |
-| **Other entities**         | ✅                         | ✅                                         | ✅                                        |
+| **Area and Iteration**                                              | ❌                         | ❌                                         | ✅                                        |
+| **Group, Team and User**                                            | ❌                         | ✅                                         | ✅                                        |
+| **Git Commit Information**                                          | ❌                         | ❌                                         | ✅                                        |
+| **Pipeline**                                                        | ❌                         | ❌                                         | ✅                                        |
+| **Build**                                                           | ❌                         | ❌                                         | ❌                                        |
+| **Other entities**                                                  | ✅                         | ✅                                         | ✅                                        |
 
 Follow the steps given below for installation:
 
@@ -33,4 +37,4 @@ Follow the steps given below for installation:
 
 In case the machine on which <code class="expression">space.vars.SITENAME</code> installed is behind the proxy (network proxy), then perform the steps mentioned in the [Proxy settings](../../manage/administrator/proxy-setting.md) section.
 
-It is also required to configure the proxy settings for <code class="expression">space.vars.SITENAME</code> Service, refer to [Proxy settings](../../connectors/azure-devops.md#proxy-settings-for-the-service) in appendix section for the <code class="expression">space.vars.SITENAME</code> Service to learn the configuration steps. 
+It is also required to configure the proxy settings for <code class="expression">space.vars.SITENAME</code> Service, refer to [Proxy settings](../../connectors/azure-devops.md#proxy-settings-for-the-service) in appendix section for the <code class="expression">space.vars.SITENAME</code> Service to learn the configuration steps.

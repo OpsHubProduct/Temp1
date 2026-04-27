@@ -1,26 +1,27 @@
-# Overview
+# How to configure cross system linkages between IBM systems?
+
+## Overview
+
 This document outlines the implementation of advanced mapping techniques to enable cross-system linkage between IBM tools (such as IBM Rational Doors and IBM Engineering Test Management). The solution supports bidirectional integration and maintains traceability across systems by leveraging advanced XSLT logic.
 
-# Use Case Description
-Suppose a user wants to integrate or migrate between IBM systems to other external system with cross systems linkage.  
+## Use Case Description
+
+Suppose a user wants to integrate or migrate between IBM systems to other external system with cross systems linkage.\
 For example, there are two main integrations:
 
-| Source System | Source Artifact     | Target System | Target Artifact | Integration Type                              |
-|---------------|---------------------|---------------|-----------------|-----------------------------------------------|
-| DNG           | System Requirement  | Jira          | Epic            | Unidirectional \[Requirement to Epic mapping] |
-| ETM           | Test Case           | Jira          | Bug             | Unidirectional \[Test Case to Bug mapping]    |
+| Source System | Source Artifact    | Target System | Target Artifact | Integration Type                              |
+| ------------- | ------------------ | ------------- | --------------- | --------------------------------------------- |
+| DNG           | System Requirement | Jira          | Epic            | Unidirectional \[Requirement to Epic mapping] |
+| ETM           | Test Case          | Jira          | Bug             | Unidirectional \[Test Case to Bug mapping]    |
 
-# For IBM Engineering Test Management
+## For IBM Engineering Test Management
 
-## **ETM as a Source**
+### **ETM as a Source**
+
 * Read side of External Link \[a.k.a Requirement Links] given in Test Plan and Test Case.
-
 * In ETM External Links can be given as:
 
-<p align="center">
-  <img src="../../../assets/ExternalLink.png" alt="ExternalLink.png" width="700"/>
-  <br/><em>Select the System</em>
-</p>
+<p align="center"><br><em>Select the System</em></p>
 
 * The use case involves linking a **System Requirement** from IBM DNG as an external link within ETM. Additionally, the goal is to link a **Jira Epic** to a **Jira Bug** using a defined link type within Jira.
 * For this below advance XSL is needed:
@@ -177,6 +178,7 @@ For example, there are two main integrations:
   </xsl:for-each>
 </OHEntityReferences>
 ```
+
 * Refer to the comments starting from `<!-- Changes from here -->` in the XSL for the custom logic implementation.
 * A mechanism is provided to handle scenarios where `isExternalLink = 'true'`. In this case:
   * The linked entity ID is extracted.
@@ -184,11 +186,11 @@ For example, there are two main integrations:
   * The Global ID of the synced entity is retrieved and included in the output.
 * When `isExternalLink = 'false'`, the default XSLT logic is applied, and the existing Global ID is used directly without cross-system lookup.
 
-## **ETM as a Target**
+### **ETM as a Target**
 
 * XSLT handles parsing of incoming other system's data.
 * Refer to the XML for writing External Links to ETM below.
-* The use case is to sync DNG link to ETM [If a Jira's Test entity is synced to a DOORS NG's System Requirement entity and another Jira's Test entity to an ETM's Test Script, linking the two in Jira will add the DNG item to ETM].
+* The use case is to sync DNG link to ETM \[If a Jira's Test entity is synced to a DOORS NG's System Requirement entity and another Jira's Test entity to an ETM's Test Script, linking the two in Jira will add the DNG item to ETM].
 
 ```xml
 <OHEntityReferences xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:entityInfo="http://com.opshub.dao.eai.OIMEntityInfo">
@@ -329,25 +331,16 @@ For example, there are two main integrations:
  		</op_list>
  	</xsl:for-each>
  </OHEntityReferences>
- ```
+```
 
-# Appendix
-## How to know System ID
+## Appendix
+
+### How to know System ID
+
 * Log in to <code class="expression">space.vars.SITENAME</code> (`<OIM URL>//OIM`).
 * Navigate to Configure Systems Page.
-    
- <p align="center">
-  <img src="../../../assets/Systems.png" />
-</p>
-
 * Click on the System that is configured Externally for the Source and Target.
 * From the endpoint URL in OIM, locate the value after `system-detail:` in the path.
-* For example, in:  
-  `.../endpoints/(system-detail:332/endpoints/view)`  
+* For example, in:\
+  `.../endpoints/(system-detail:332/endpoints/view)`\
   the **System Detail ID** is `332`.
-  
- <p align="center">
-  <img src="../../../assets/SystemsURL.png" width="700px" />
-</p>
-
-

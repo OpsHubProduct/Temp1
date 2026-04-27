@@ -27,11 +27,11 @@ layout:
 
 Hi, Welcome to the site document of this application. <code class="expression">space.vars.SITENAME</code>&#x20;
 
-{% if visitor.claims.product === "OM4ADO" %}
+{% if visitor.claims.unsigned.product ===  "OM4ADO" %}
 This for OM4ADO.
 {% endif %}
 
-{% if visitor.claims.product ===  "OIM" %}
+{% if visitor.claims.unsigned.product ===  "OIM" %}
 This doc is for OIM.
 {% endif %}
 

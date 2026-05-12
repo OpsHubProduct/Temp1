@@ -31,7 +31,7 @@ layout:
 This for OM4ADO.
 {% endif %}
 
-Hi, Welcome to the site document of this application. <code class="expression">space.vars.SITENAME</code>&#x20;
+Hi, Welcome to the site document of this application. <code class="expression">space.vars.SITENAME</code>&#x20;  | <code class="expression">visitor.claims.unsigned.product</code>.
 
 {% if visitor.claims.unsigned.product ===  "OIM" %}
 This doc is for <code class="expression">visitor.claims.unsigned.product</code>.
